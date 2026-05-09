@@ -1,0 +1,328 @@
+/* ================================================
+   フッター 3カラム化
+   各種SNSの見出し+リンクを .footer-sns で1セルに集約
+   ================================================ */
+
+.footer_inner {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media screen and (max-width: 780px) {
+  .footer_inner {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.footer-sns {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+/* ================================================
+   フッターSNSリンク (.footer-sns-links)
+   ================================================ */
+
+.footer-sns-heading {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.footer-sns-links {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-sns-links li {
+  font-weight: 400;
+}
+
+.footer-sns-links a {
+  font-size: clamp(12px, 0.2vw + 11px, 14px);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  line-height: 1.6;
+}
+
+.footer-sns-links a:hover {
+  opacity: 0.6;
+}
+
+/* ================================================
+   シェアボタン (.share-buttons)
+   記事ページのSNSシェア用 — single.php のみ表示
+   ================================================ */
+
+.share-buttons {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.share-buttons_label {
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.share-buttons_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 共通 */
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+.share-button:hover {
+  opacity: 0.8;
+  color: #ffffff;
+}
+.share-button img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.share-button svg {
+  flex-shrink: 0;
+}
+
+/* X（旧Twitter） */
+.share-button._x {
+  background-color: #000000;
+}
+
+/* LINE */
+.share-button._line {
+  background-color: #06C755;
+}
+
+/* Facebook */
+.share-button._facebook {
+  background-color: #1877F2;
+}
+
+/* URLコピー */
+.share-button._copy {
+  background-color: #666666;
+  color: #ffffff;
+}
+.share-button._copy._copied {
+  background-color: #E85299;
+}
+
+@media screen and (max-width: 480px) {
+  .share-buttons_list {
+    flex-direction: column;
+  }
+  .share-button {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ================================================
+   ホーム SNSセクション — ボタンサイズ縮小（60%）
+   テーマ本体の .button._sns サイズを 60% に圧縮
+   ================================================ */
+
+.home-sns .sns-links {
+  grid-template-columns: repeat(3, 225px);
+  justify-content: center;
+  gap: clamp(20px, 0.8349900596vw + 16.9940357853px, 28px);
+}
+
+@media screen and (max-width: 780px) {
+  .home-sns .sns-links {
+    grid-template-columns: minmax(0, 225px);
+  }
+}
+
+.home-sns .sns-links .button._sns {
+  max-width: 225px;
+  padding-top:    clamp(18px, 0.5964214712vw + 15.8528827038px, 24px);
+  padding-bottom: clamp(18px, 0.5964214712vw + 15.8528827038px, 24px);
+  font-size:      clamp(15px, 0.2982107356vw + 13.9264413519px, 18px);
+  gap:            clamp(8px,  0.1789264413vw +  7.1558648111px, 10px);
+  border-radius:  6px;
+}
+
+.home-sns .sns-links .button._sns .sns_icon {
+  width: clamp(26px, 0.8946322068vw + 23.1793240556px, 35px);
+}
+
+.home-sns .sns-links .button._sns::after {
+  border-radius: 6px;
+}
+
+/* ================================================
+   ホーム プロフィールセクション — 新レイアウト
+   ================================================ */
+
+.home-profile__layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 48px;
+  align-items: center;
+}
+
+.home-profile__lead {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: clamp(14px, 0.3976143141vw + 12.5685884692px, 18px);
+  font-weight: 400;
+  line-height: 2.1;
+  letter-spacing: 0.05em;
+  color: #444;
+  margin-bottom: clamp(20px, 0.7952286282vw + 17.1371769384px, 28px);
+}
+
+.home-profile__meta {
+  display: flex;
+  gap: 20px 32px;
+  flex-wrap: wrap;
+  padding-top: clamp(18px, 0.5964214712vw + 15.8528827038px, 24px);
+  border-top: 1px dashed #f7a8c1;
+  margin-bottom: clamp(24px, 0.7952286282vw + 21.1371769384px, 32px);
+}
+
+.home-profile__meta-item {
+  text-align: left;
+}
+
+.home-profile__meta-label {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: clamp(10px, 0.0994035785vw +  9.6421471173px, 11px);
+  letter-spacing: 0.2em;
+  color: #e85d8a;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.home-profile__meta-value {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: clamp(13px, 0.1988071571vw + 12.2842942346px, 15px);
+  color: #333;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.home-profile__photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+@media screen and (max-width: 780px) {
+  .home-profile__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .home-profile__photo {
+    max-width: 220px;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+
+/* ================================================
+   home-support「SNSで投稿」セクション X アイコン
+   既存の logo-white.png（白X）を黒角丸ラッパーで表示
+   ================================================ */
+
+.home-support .sns-icons .sns-icon._x-icon {
+  background: #000;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-support .sns-icons .sns-icon._x-icon img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+/* CTA ボタン用ラッパー：layout（テキスト+写真）の外、セクション幅の中央 */
+.home-profile__cta {
+  margin-top: clamp(32px, 1.49vw + 26.6px, 48px) !important;
+}
+
+/* ホームプロフィールセクションの「詳細なプロフィール」ボタン — アウトラインのみ・中央寄せ */
+.home-profile .button._read-more {
+  background: transparent;
+  color: #e85d8a;
+  border: 1.5px solid #e85d8a;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  border-radius: 999px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 36px;
+  padding-right: 36px;
+  width: auto;
+  max-width: 280px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.home-profile .button._read-more::before,
+.home-profile .button._read-more::after {
+  display: none;
+}
+.home-profile .button._read-more:hover {
+  background: #e85d8a;
+  border-color: #e85d8a;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232, 93, 138, 0.22);
+  opacity: 1;
+}
+
+/* ================================================
+   ホーム プロフィールセクション — 新レイアウト用アニメーション
+   本番Customizerは旧クラス（profile_image/profile_body等）が対象で
+   新レイアウトには適用されないため、新クラス用に再定義
+   ================================================ */
+
+@keyframes shindoFadeInUp {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.home-profile.animate .home-profile__text {
+  animation: shindoFadeInUp 0.7s ease 0.15s both;
+}
+.home-profile.animate .home-profile__photo {
+  animation: shindoFadeInUp 0.7s ease 0.30s both;
+}
+.home-profile.animate .button._read-more {
+  animation: shindoFadeInUp 0.7s ease 0.55s both;
+}
